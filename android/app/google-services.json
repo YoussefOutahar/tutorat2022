@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "537435540327",
+    "project_id": "tutorat-e6f75",
+    "storage_bucket": "tutorat-e6f75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537435540327:android:5637c52756c54374c33dc2",
+        "android_client_info": {
+          "package_name": "com.example.tutorat2022"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "537435540327-up48ms7j9emlqprji1m936jbgnkcs9ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgz1QyGxjSLyxxBzLX8Mc3qV3wsGFhbYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "537435540327-up48ms7j9emlqprji1m936jbgnkcs9ha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "537435540327-8mbkn6b7s766mitr09871tgiq0gp8tc2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tutorat2022"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
