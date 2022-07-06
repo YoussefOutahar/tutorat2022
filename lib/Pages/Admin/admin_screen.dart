@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AdminScreen extends StatefulWidget {
-  AdminScreen({Key? key}) : super(key: key);
+class AdminPage extends StatefulWidget {
+  const AdminPage({Key? key}) : super(key: key);
 
   @override
-  State<AdminScreen> createState() => _AdminScreenState();
+  State<AdminPage> createState() => _AdminScreenState();
 }
 
-class _AdminScreenState extends State<AdminScreen> {
+class _AdminScreenState extends State<AdminPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold();

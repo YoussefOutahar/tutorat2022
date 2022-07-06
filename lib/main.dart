@@ -7,18 +7,27 @@ import 'package:provider/provider.dart';
 
 import 'package:tutorat2022/Pages/Authentification/authenticate_page.dart';
 
+import 'Pages/Admin/admin_screen.dart';
 import 'Pages/Tutoré/tutorer_screen.dart';
-import 'firebase_options.dart';
+import 'FireBase/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase.
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
+  // Initialize the Firebase Performance service.
   FirebasePerformance perfomance = FirebasePerformance.instance;
+  perfomance.setPerformanceCollectionEnabled(true);
+
+  // Initialize the analytics service.
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   analytics.setAnalyticsCollectionEnabled(true);
   analytics.logAppOpen();
+
   Provider.debugCheckInvalidValueType = null;
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (_) async {
@@ -38,7 +47,8 @@ class WebApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => const AuthenticatePage(),
-        "/tutorat": (context) => const TutoratPage(),
+        "/Tutorat": (context) => const TutoratPage(),
+        "/Admin": (context) => const AdminPage(),
       },
       initialRoute: "/",
     );
