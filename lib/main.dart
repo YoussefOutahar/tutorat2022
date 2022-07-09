@@ -7,9 +7,9 @@ import 'package:provider/provider.dart';
 
 import 'package:tutorat2022/Pages/Authentification/authenticate_page.dart';
 
-import 'Pages/Admin/admin_screen.dart';
-import 'Pages/Tutoré/tutorer_screen.dart';
 import 'FireBase/firebase_options.dart';
+import 'Pages/MainPage/AdminDashBoard/admin_screen.dart';
+import 'Pages/MainPage/TutoréUI/tutorer_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

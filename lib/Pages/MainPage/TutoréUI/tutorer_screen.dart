@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorat2022/Pages/MainPage/AdapiveSidePanel.dart';
 
 class TutoratPage extends StatefulWidget {
   const TutoratPage({Key? key}) : super(key: key);
@@ -10,6 +11,10 @@ class TutoratPage extends StatefulWidget {
 class _TutoratPageState extends State<TutoratPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const AdaptiveSidePanel(
+      body: Center(
+        child: Text("data"),
+      ),
+    );
   }
 }

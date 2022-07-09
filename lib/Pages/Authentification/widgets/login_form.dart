@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'auth_text_field.dart';
 
 class LoginForm extends StatelessWidget {
-  const LoginForm(
-      {Key? key, required this.width, required this.height, required this.swap})
-      : super(key: key);
+  const LoginForm({
+    Key? key,
+    required this.width,
+    required this.height,
+    required this.swap,
+  }) : super(key: key);
   final double width;
   final double height;
   final VoidCallback swap;
@@ -54,7 +57,14 @@ class LoginForm extends StatelessWidget {
           child: Row(
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  bool _validAccount = true;
+                  if (_validAccount) {
+                    Navigator.pushNamed(context, '/Tutorat');
+                  } else {
+                    //TODO: error message
+                  }
+                },
                 child: const Text('Login'),
               ),
               const SizedBox(width: 20),
