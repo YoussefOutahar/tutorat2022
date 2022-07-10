@@ -11,10 +11,20 @@ class TutoratPage extends StatefulWidget {
 class _TutoratPageState extends State<TutoratPage> {
   @override
   Widget build(BuildContext context) {
-    return const AdaptiveSidePanel(
-      body: Center(
-        child: Text("data"),
+    bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
+    return AdaptiveSidePanel(
+        body: Padding(
+      padding: isPortrait
+          ? const EdgeInsets.only(left: 20.0, bottom: 20.0, right: 20.0)
+          : const EdgeInsets.only(top: 20.0, bottom: 20.0, right: 20.0),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 350),
+        decoration: const BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
       ),
-    );
+    ));
   }
 }
