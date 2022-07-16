@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tutorat2022/Pages/MainPage/adapive_side_panel.dart';
+import 'package:tutorat2022/Pages/AdaptiveSidePanel/adapive_side_panel.dart';
 
 class TutoratPage extends StatefulWidget {
   const TutoratPage({Key? key}) : super(key: key);

@@ -83,6 +83,7 @@ class _TabTileState extends State<TabTile> with SingleTickerProviderStateMixin {
                   color: widget.isSelected
                       ? const Color(0xFF7D8000)
                       : (_hovering ? Colors.white : Colors.grey[700]),
+                  size: 20,
                 ),
                 if (widget.isSmall)
                   AnimatedDefaultTextStyle(

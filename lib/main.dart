@@ -2,11 +2,10 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_performance/firebase_performance.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'package:tutorat2022/Pages/Authentification/authenticate_page.dart';
-import 'package:tutorat2022/Providers/page_state.dart';
+import 'package:tutorat2022/Providers/user.dart';
 
 import 'FireBase/firebase_options.dart';
 import 'Pages/MainPage/AdminDashBoard/admin_screen.dart';
@@ -36,9 +35,7 @@ void main() async {
   Provider.debugCheckInvalidValueType = null;
   runApp(
     MultiProvider(
-      providers: [
-        ChangeNotifierProvider<PageState>(create: (_) => PageState())
-      ],
+      providers: [ChangeNotifierProvider<User>(create: (_) => User())],
       child: const WebApp(),
     ),
   );
@@ -53,7 +50,7 @@ class WebApp extends StatelessWidget {
       title: "Tutorat",
       theme: ThemeData(
         useMaterial3: true,
-        fontFamily: "SF Pro",
+        //fontFamily: "SF Pro",
       ),
       routes: {
         "/": (context) => const AuthenticatePage(),
