@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tutorat2022/Pages/MainPage/AdapiveSidePanel.dart';
+import 'package:tutorat2022/Pages/MainPage/adapive_side_panel.dart';
 
 class TutoratPage extends StatefulWidget {
   const TutoratPage({Key? key}) : super(key: key);
@@ -14,16 +14,11 @@ class _TutoratPageState extends State<TutoratPage> {
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
     return AdaptiveSidePanel(
-        body: Padding(
-      padding: isPortrait
-          ? const EdgeInsets.only(left: 20.0, bottom: 20.0, right: 20.0)
-          : const EdgeInsets.only(top: 20.0, bottom: 20.0, right: 20.0),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 350),
-        decoration: const BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-        ),
+        body: AnimatedContainer(
+      duration: const Duration(milliseconds: 350),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
     ));
   }

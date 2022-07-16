@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
-import 'widgets/auth_text_field.dart';
 import 'widgets/login_form.dart';
 import 'widgets/register_form.dart';
 
@@ -43,7 +41,8 @@ class _LoginPanelState extends State<LoginPanel> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20), //ACHRAF this was 40
               ),
-              surfaceTintColor: Colors.blue.shade400,
+              //surfaceTintColor: Colors.blue.shade400,
+              color: Color.fromARGB(255, 22, 41, 76), //ACHRAF this was nothing
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

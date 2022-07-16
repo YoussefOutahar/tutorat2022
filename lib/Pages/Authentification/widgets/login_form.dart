@@ -19,16 +19,11 @@ class LoginForm extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 40.0),
-          child: PhysicalModel(
-            color: Colors.transparent,
-            shadowColor: Colors.black,
-            elevation: 20,
-            child: Image(
-              width: height / 6,
-              height: height / 6,
-              image: const AssetImage('assets/Logo-UIR.png'),
-              fit: BoxFit.cover,
-            ),
+          child: Image(
+            width: height / 6,
+            height: height / 6,
+            image: const AssetImage('assets/Logo-UIR.png'),
+            fit: BoxFit.cover,
           ),
         ),
         const SizedBox(height: 80),
@@ -58,8 +53,8 @@ class LoginForm extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  bool _validAccount = true;
-                  if (_validAccount) {
+                  bool validAccount = true;
+                  if (validAccount) {
                     Navigator.pushNamed(context, '/Tutorat');
                   } else {
                     //TODO: error message

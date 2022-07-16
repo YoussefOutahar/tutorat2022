@@ -32,7 +32,8 @@ class _MainPageState extends State<AuthenticatePage> {
                   Container(
                     width: double.infinity,
                     height: double.infinity,
-                    color: Colors.blue.shade900.withOpacity(0.6),
+                    color: Colors.white
+                        .withOpacity(0.4), //blue.shade900.withOpacity(0.6),
                   ),
                 ],
               ),
