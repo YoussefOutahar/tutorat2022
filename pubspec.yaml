@@ -43,8 +43,10 @@ dependencies:
 
   #Ui/Layout Widgets
   glassmorphism:
-  lottie: ^1.3.0
+  lottie:
   iconsax:
+  flutter_vector_icons:
+  cuberto_bottom_bar:
 
 dev_dependencies:
   flutter_test:

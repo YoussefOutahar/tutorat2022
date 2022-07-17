@@ -4,12 +4,12 @@ import 'package:firebase_performance/firebase_performance.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:tutorat2022/Pages/Authentification/authenticate_page.dart';
 import 'package:tutorat2022/Providers/user.dart';
 
 import 'FireBase/firebase_options.dart';
-import 'Pages/MainPage/AdminDashBoard/admin_screen.dart';
-import 'Pages/MainPage/TutoréUI/tutorer_screen.dart';
+import 'Views/AdminDashBoard/admin_screen.dart';
+import 'Views/Authentification/authenticate_page.dart';
+import 'Views/TutoréUI/tutorer_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

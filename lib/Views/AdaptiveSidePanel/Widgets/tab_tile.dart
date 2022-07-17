@@ -18,7 +18,7 @@ class TabTile extends StatefulWidget {
   State<TabTile> createState() => _TabTileState();
 }
 
-class _TabTileState extends State<TabTile> with SingleTickerProviderStateMixin {
+class _TabTileState extends State<TabTile> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -95,7 +95,7 @@ class _TabTileState extends State<TabTile> with SingleTickerProviderStateMixin {
                           : (_hovering ? Colors.white : Colors.grey), //#7D8000
                     ),
                     duration: const Duration(milliseconds: 100),
-                    child: Text("    " + widget.text),
+                    child: Text("    ${widget.text}"),
                   ),
               ],
             ),

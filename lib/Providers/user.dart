@@ -4,5 +4,5 @@ class User with ChangeNotifier {
   String? name;
   String? email;
 
-  String? get userName => this.name;
+  String? get userName => name;
 }

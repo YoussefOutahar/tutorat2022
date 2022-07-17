@@ -8,26 +8,37 @@ class WebSidePanel extends StatefulWidget {
       required this.tabData,
       required this.isSelected,
       required this.aspectRatio,
-      required this.body})
+      required this.tabs})
       : super(key: key);
 
   final List<List<Object>> tabData;
   final List<bool> isSelected;
   final double aspectRatio;
-  final Widget body;
+  final List<Widget> tabs;
 
   @override
   State<WebSidePanel> createState() => _WebSidePanelState();
 }
 
 class _WebSidePanelState extends State<WebSidePanel> {
+  Widget? _buildBody() {
+    for (bool selected in widget.isSelected) {
+      if (selected) {
+        return widget.tabs[widget.isSelected.indexOf(selected)];
+      }
+    }
+
+    return Container(
+        color: Colors.white, child: const Center(child: Text("Error 404")));
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Stack(
       children: [
         Container(
-          color: Color.fromARGB(255, 22, 41, 76),
+          color: const Color.fromARGB(255, 22, 41, 76),
           height: size.height,
           width: size.width,
           child: Container(),
@@ -59,8 +70,7 @@ class _WebSidePanelState extends State<WebSidePanel> {
                                 }
                               }
                               setState(() {
-                                widget.isSelected[index] =
-                                    !widget.isSelected[index];
+                                widget.isSelected[index] = true;
                               });
                             },
                             child: TabTile(
@@ -79,7 +89,16 @@ class _WebSidePanelState extends State<WebSidePanel> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: widget.body,
+                  child: AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 350),
+                      transitionBuilder:
+                          (Widget child, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                      child: _buildBody()),
                 ),
               ),
             ],
