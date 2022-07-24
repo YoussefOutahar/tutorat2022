@@ -18,10 +18,7 @@ class PhoneVersion extends StatefulWidget {
   State<PhoneVersion> createState() => _PhoneVersionState();
 }
 
-class _PhoneVersionState extends State<PhoneVersion>
-    with TickerProviderStateMixin {
-  late AnimationController _controller;
-
+class _PhoneVersionState extends State<PhoneVersion> {
   int currentPage = 0;
   String? currentTitle;
   Color? currentColor;
@@ -29,6 +26,7 @@ class _PhoneVersionState extends State<PhoneVersion>
   Widget? _buildBody() {
     for (bool selected in widget.isSelected) {
       if (selected) {
+        currentPage = widget.isSelected.indexOf(selected);
         return widget.tabs[widget.isSelected.indexOf(selected)];
       }
     }
@@ -37,49 +35,42 @@ class _PhoneVersionState extends State<PhoneVersion>
   }
 
   @override
-  void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 300),
-    );
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, _) {
-        return Scaffold(
-          body: _buildBody(),
-          bottomNavigationBar: SafeArea(
-            child: CubertoBottomBar(
-              onTabChangedListener:
-                  (int position, String title, Color? tabColor) {
-                for (int i = 0; i < widget.isSelected.length; i++) {
-                  if (i != position) {
-                    widget.isSelected[i] = false;
-                  }
-                }
-                setState(() {
-                  widget.isSelected[position] = true;
-                });
-              },
-              tabs: widget.tabData
-                  .map((e) => TabData(
-                      iconData: e[0] as IconData, title: e[1] as String))
-                  .toList(),
+    return Scaffold(
+      body: _buildBody(),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CubertoBottomBar(
+            selectedTab: currentPage,
+            barBorderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
             ),
+            onTabChangedListener:
+                (int position, String title, Color? tabColor) {
+              for (int i = 0; i < widget.isSelected.length; i++) {
+                if (i != position) {
+                  widget.isSelected[i] = false;
+                }
+              }
+              setState(() {
+                widget.isSelected[position] = true;
+              });
+            },
+            tabs: widget.tabData
+                .map((e) => TabData(
+                      key: Key(widget.tabData.indexOf(e).toString()),
+                      iconData: e[0] as IconData,
+                      title: e[1] as String,
+                    ))
+                .toList(),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

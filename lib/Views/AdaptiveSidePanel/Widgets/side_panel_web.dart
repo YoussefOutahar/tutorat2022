@@ -41,14 +41,13 @@ class _WebSidePanelState extends State<WebSidePanel> {
           color: const Color.fromARGB(255, 22, 41, 76),
           height: size.height,
           width: size.width,
-          child: Container(),
         ),
         AnimatedContainer(
           duration: const Duration(milliseconds: 350),
           child: Row(
             children: [
               AnimatedContainer(
-                width: widget.aspectRatio < 0.7 ? 160 : 53,
+                width: widget.aspectRatio < 0.6 ? 160 : 53,
                 height: size.height - 20 * 2,
                 duration: const Duration(milliseconds: 350),
                 child: Column(
@@ -77,7 +76,7 @@ class _WebSidePanelState extends State<WebSidePanel> {
                               text: widget.tabData[index][1] as String,
                               icon: widget.tabData[index][0] as IconData,
                               isSelected: widget.isSelected[index],
-                              isSmall: widget.aspectRatio < 0.7,
+                              isSmall: widget.aspectRatio < 0.6,
                             ),
                           );
                         },
@@ -90,15 +89,16 @@ class _WebSidePanelState extends State<WebSidePanel> {
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 350),
-                      transitionBuilder:
-                          (Widget child, Animation<double> animation) {
-                        return FadeTransition(
-                          opacity: animation,
-                          child: child,
-                        );
-                      },
-                      child: _buildBody()),
+                    duration: const Duration(milliseconds: 350),
+                    transitionBuilder:
+                        (Widget child, Animation<double> animation) {
+                      return FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      );
+                    },
+                    child: _buildBody(),
+                  ),
                 ),
               ),
             ],

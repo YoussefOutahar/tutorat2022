@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:tutorat2022/Providers/user.dart';
+import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/HomeDashBoard/t_home_page.dart';
 
 import 'FireBase/firebase_options.dart';
 import 'Views/AdminDashBoard/admin_screen.dart';
@@ -56,6 +57,7 @@ class WebApp extends StatelessWidget {
         "/": (context) => const AuthenticatePage(),
         "/Tutorat": (context) => const TutoratPage(),
         "/Admin": (context) => const AdminPage(),
+        "/test": (context) => const THomePage(),
       },
       initialRoute: "/",
     );

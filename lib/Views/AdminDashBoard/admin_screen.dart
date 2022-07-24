@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorat2022/Views/AdaptiveSidePanel/adapive_side_panel.dart';
 
 class AdminPage extends StatefulWidget {
   const AdminPage({Key? key}) : super(key: key);
@@ -7,74 +8,49 @@ class AdminPage extends StatefulWidget {
   State<AdminPage> createState() => _AdminScreenState();
 }
 
-/*
-Card Content:
-
-  - (Beta) Description Image
-
-  - Module name
-
-  - N of tutors
-  - N of students
-  - Availability(Teams, Class)
-
-  - Add Button
-*/
-
-class _AdminScreenState extends State<AdminPage> with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation _animation;
-  @override
-  void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    );
-    _animation = Tween(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(parent: _controller, curve: Curves.easeInQuart));
-    _controller.forward();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class _AdminScreenState extends State<AdminPage> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Stack(
-      children: [
-        SizedBox(
-          width: size.width,
-          height: size.height,
-          child: AnimatedBuilder(
-              animation: _animation,
-              builder: (context, child) {
-                return Center(
-                  child: Stack(children: [
-                    Opacity(
-                      opacity: _animation.value,
-                      child: const Image(
-                        fit: BoxFit.fill,
-                        image: AssetImage('assets/large_UIR_Blurred.jpg'),
-                      ),
-                    ),
-                    Opacity(
-                      opacity: 1.0 - _animation.value,
-                      child: const Image(
-                        fit: BoxFit.fill,
-                        image: AssetImage('assets/large_UIR.jpg'),
-                      ),
-                    )
-                  ]),
-                );
-              }),
+    return AdaptiveSidePanel(
+      tabData: [
+        [Icons.abc, "Home"],
+        [Icons.abc, "Home"],
+        [Icons.abc, "Home"],
+        [Icons.abc, "Home"],
+      ],
+      tabs: [
+        AnimatedContainer(
+          key: const Key("1"),
+          duration: const Duration(milliseconds: 350),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
         ),
-        FloatingActionButton(
-            onPressed: initState, child: const Icon(Icons.add)),
+        AnimatedContainer(
+          key: const Key('2'),
+          duration: const Duration(milliseconds: 350),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        AnimatedContainer(
+          key: const Key('3'),
+          duration: const Duration(milliseconds: 350),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        AnimatedContainer(
+          key: const Key('4'),
+          duration: const Duration(milliseconds: 350),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
       ],
     );
   }
