@@ -47,7 +47,7 @@ class _WebSidePanelState extends State<WebSidePanel> {
           child: Row(
             children: [
               AnimatedContainer(
-                width: widget.aspectRatio < 0.6 ? 160 : 53,
+                width: widget.aspectRatio < 0.6 ? 180 : 53,
                 height: size.height - 20 * 2,
                 duration: const Duration(milliseconds: 350),
                 child: Column(

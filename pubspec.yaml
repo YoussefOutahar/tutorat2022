@@ -47,9 +47,11 @@ dependencies:
   iconsax:
   flutter_vector_icons:
   cuberto_bottom_bar:
+  flutter_profile_picture:
 
   # The Following dependencies are for charts,graphs and calendars
   syncfusion_flutter_calendar:
+  fl_chart:
 
 dev_dependencies:
   flutter_test:

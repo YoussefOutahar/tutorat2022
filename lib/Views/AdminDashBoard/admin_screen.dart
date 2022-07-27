@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:tutorat2022/Views/AdaptiveSidePanel/adapive_side_panel.dart';
+import 'package:tutorat2022/Views/AdminDashBoard/Pages/home_page.dart';
+
+import 'Pages/StudentPage/students_page.dart';
 
 class AdminPage extends StatefulWidget {
   const AdminPage({Key? key}) : super(key: key);
@@ -12,10 +16,10 @@ class _AdminScreenState extends State<AdminPage> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveSidePanel(
-      tabData: [
-        [Icons.abc, "Home"],
-        [Icons.abc, "Home"],
-        [Icons.abc, "Home"],
+      tabData: const [
+        [Iconsax.activity, "DashBoard"],
+        [Iconsax.personalcard, "Students"],
+        [Icons.abc, "Homse"],
         [Icons.abc, "Home"],
       ],
       tabs: [
@@ -26,6 +30,7 @@ class _AdminScreenState extends State<AdminPage> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
+          child: const AdminHomePage(),
         ),
         AnimatedContainer(
           key: const Key('2'),
@@ -34,6 +39,7 @@ class _AdminScreenState extends State<AdminPage> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
+          child: const StudentsPage(),
         ),
         AnimatedContainer(
           key: const Key('3'),

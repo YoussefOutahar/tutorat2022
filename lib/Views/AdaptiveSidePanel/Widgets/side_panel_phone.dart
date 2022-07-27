@@ -63,7 +63,7 @@ class _PhoneVersionState extends State<PhoneVersion> {
             },
             tabs: widget.tabData
                 .map((e) => TabData(
-                      key: Key(widget.tabData.indexOf(e).toString()),
+                      key: Key((widget.tabData.indexOf(e) + 50).toString()),
                       iconData: e[0] as IconData,
                       title: e[1] as String,
                     ))
