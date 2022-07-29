@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/t_history_page.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/t_module_page.dart';
+import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/ModulePage/t_module_page.dart';
 
 import '../AdaptiveSidePanel/adapive_side_panel.dart';
 import 'Pages/t_calendar_page.dart';
@@ -27,40 +27,20 @@ class _TutoratPageState extends State<TutoratPage> {
     return AdaptiveSidePanel(
       tabData: tabData,
       tabs: [
-        AnimatedContainer(
+        Container(
           key: const Key("1"),
-          duration: const Duration(milliseconds: 350),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
           child: const THomePage(),
         ),
-        AnimatedContainer(
+        Container(
           key: const Key('2'),
-          duration: const Duration(milliseconds: 350),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
           child: const TModulePage(),
         ),
-        AnimatedContainer(
+        Container(
           key: const Key('3'),
-          duration: const Duration(milliseconds: 350),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
           child: const TCalendarPage(),
         ),
-        AnimatedContainer(
+        Container(
           key: const Key('4'),
-          duration: const Duration(milliseconds: 350),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
           child: const THistoryPage(),
         ),
       ],

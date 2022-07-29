@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/modules_view.dart';
+import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/HomeDashBoard/widgets/modules_view.dart';
 
 class THomePage extends StatefulWidget {
   const THomePage({Key? key}) : super(key: key);
@@ -21,23 +21,20 @@ class _THomePageState extends State<THomePage> {
         if (aspectRatio < 0.6) {
           return Row(
             children: [
-              const Flexible(
-                  flex: 4,
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Padding(
-                      padding: EdgeInsets.all(30.0),
-                      child: ModulesView(),
-                    ),
-                  )),
-              Flexible(
+              const Expanded(
                 flex: 3,
+                child: ModulesView(),
+              ),
+              Expanded(
+                flex: 1,
                 child: Column(
                   children: [
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: SfCalendar(),
+                        child: SfCalendar(
+                          view: CalendarView.schedule,
+                        ),
                       ),
                     ),
                     Expanded(

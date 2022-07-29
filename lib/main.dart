@@ -1,13 +1,14 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+// ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_performance/firebase_performance.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:tutorat2022/Providers/user.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/HomeDashBoard/t_home_page.dart';
 
 import 'FireBase/firebase_options.dart';
+import 'Views/AdminDashBoard/Pages/StudentPage/students_page.dart';
 import 'Views/AdminDashBoard/admin_screen.dart';
 import 'Views/Authentification/authenticate_page.dart';
 import 'Views/TutoréUI/tutorer_screen.dart';
@@ -48,6 +49,7 @@ class WebApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Tutorat",
       theme: ThemeData(
         useMaterial3: true,
@@ -57,7 +59,7 @@ class WebApp extends StatelessWidget {
         "/": (context) => const AuthenticatePage(),
         "/Tutorat": (context) => const TutoratPage(),
         "/Admin": (context) => const AdminPage(),
-        "/test": (context) => const THomePage(),
+        "/test": (context) => const StudentsPage(),
       },
       initialRoute: "/",
     );

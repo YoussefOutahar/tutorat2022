@@ -48,6 +48,10 @@ dependencies:
   flutter_vector_icons:
   cuberto_bottom_bar:
   flutter_profile_picture:
+  anim_search_bar:
+  searchbar_animation:
+  syncfusion_flutter_datagrid:
+  flutter_staggered_grid_view:
 
   # The Following dependencies are for charts,graphs and calendars
   syncfusion_flutter_calendar:

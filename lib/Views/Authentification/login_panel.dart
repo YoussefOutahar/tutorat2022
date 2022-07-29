@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'widgets/login_form.dart';
-import 'widgets/register_form.dart';
 
 class LoginPanel extends StatefulWidget {
   const LoginPanel({
@@ -18,11 +17,6 @@ class LoginPanel extends StatefulWidget {
 }
 
 class _LoginPanelState extends State<LoginPanel> {
-  bool _isRegistring = false;
-  Function register = () {
-    //TODO: Implement Register
-  };
-
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -57,19 +51,10 @@ class _LoginPanelState extends State<LoginPanel> {
                         scale: animation,
                         child: child,
                       ),
-                      child: _isRegistring
-                          ? RegisterForm(
-                              width: widget.width,
-                              height: widget.height,
-                              swap: () => setState(
-                                  () => _isRegistring = !_isRegistring),
-                            )
-                          : LoginForm(
-                              width: widget.width,
-                              height: widget.height,
-                              swap: () => setState(
-                                  () => _isRegistring = !_isRegistring),
-                            ),
+                      child: LoginForm(
+                        width: widget.width,
+                        height: widget.height,
+                      ),
                     ),
                   ),
                   if (aspectRatio < 0.6)

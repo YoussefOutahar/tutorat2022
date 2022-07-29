@@ -7,11 +7,9 @@ class LoginForm extends StatelessWidget {
     Key? key,
     required this.width,
     required this.height,
-    required this.swap,
   }) : super(key: key);
   final double width;
   final double height;
-  final VoidCallback swap;
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +59,6 @@ class LoginForm extends StatelessWidget {
                   }
                 },
                 child: const Text('Login'),
-              ),
-              const SizedBox(width: 20),
-              ElevatedButton(
-                onPressed: swap,
-                child: const Text('Register'),
               ),
             ],
           ),

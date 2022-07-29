@@ -74,7 +74,7 @@ class _TabTileState extends State<TabTile> with TickerProviderStateMixin {
                         right: Radius.circular(4)),
                     color: widget.isSelected
                         ? const Color(0xFF7D8000)
-                        : (_hovering ? Colors.white : Colors.grey[700]),
+                        : (_hovering ? const Color(0xFF7D8000) : Colors.black),
                   ),
                 ),
                 const SizedBox(width: 15),
@@ -82,21 +82,9 @@ class _TabTileState extends State<TabTile> with TickerProviderStateMixin {
                   widget.icon,
                   color: widget.isSelected
                       ? const Color(0xFF7D8000)
-                      : (_hovering ? Colors.white : Colors.grey[700]),
+                      : (_hovering ? const Color(0xFF7D8000) : Colors.black),
                   size: 20,
                 ),
-                if (widget.isSmall)
-                  AnimatedDefaultTextStyle(
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w100,
-                      color: widget.isSelected
-                          ? const Color(0xFF7D8000)
-                          : (_hovering ? Colors.white : Colors.grey), //#7D8000
-                    ),
-                    duration: const Duration(milliseconds: 100),
-                    child: Text("    ${widget.text}"),
-                  ),
               ],
             ),
           ),

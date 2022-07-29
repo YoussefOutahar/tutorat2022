@@ -35,73 +35,60 @@ class _WebSidePanelState extends State<WebSidePanel> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Stack(
+    return Row(
       children: [
-        Container(
-          color: const Color.fromARGB(255, 22, 41, 76),
+        SizedBox(
+          width: 50,
           height: size.height,
-          width: size.width,
-        ),
-        AnimatedContainer(
-          duration: const Duration(milliseconds: 350),
-          child: Row(
+          child: Column(
             children: [
-              AnimatedContainer(
-                width: widget.aspectRatio < 0.6 ? 180 : 53,
-                height: size.height - 20 * 2,
-                duration: const Duration(milliseconds: 350),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 120,
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: widget.tabData.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              for (int i = 0;
-                                  i < widget.isSelected.length;
-                                  i++) {
-                                if (i != index) {
-                                  widget.isSelected[i] = false;
-                                }
-                              }
-                              setState(() {
-                                widget.isSelected[index] = true;
-                              });
-                            },
-                            child: TabTile(
-                              text: widget.tabData[index][1] as String,
-                              icon: widget.tabData[index][0] as IconData,
-                              isSelected: widget.isSelected[index],
-                              isSmall: widget.aspectRatio < 0.6,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+              const SizedBox(
+                height: 119,
               ),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 350),
-                    transitionBuilder:
-                        (Widget child, Animation<double> animation) {
-                      return FadeTransition(
-                        opacity: animation,
-                        child: child,
-                      );
-                    },
-                    child: _buildBody(),
-                  ),
+                child: ListView.builder(
+                  itemCount: widget.tabData.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        for (int i = 0; i < widget.isSelected.length; i++) {
+                          if (i != index) {
+                            widget.isSelected[i] = false;
+                          }
+                        }
+                        setState(() {
+                          widget.isSelected[index] = true;
+                        });
+                      },
+                      child: TabTile(
+                        text: widget.tabData[index][1] as String,
+                        icon: widget.tabData[index][0] as IconData,
+                        isSelected: widget.isSelected[index],
+                        isSmall: widget.aspectRatio < 0.6,
+                      ),
+                    );
+                  },
                 ),
               ),
+              const Spacer(),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.logout)),
             ],
+          ),
+        ),
+        const VerticalDivider(
+          color: Colors.black,
+        ),
+        Expanded(
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 350),
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            },
+            child: _buildBody(),
           ),
         ),
       ],
