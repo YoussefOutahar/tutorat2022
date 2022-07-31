@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
@@ -6,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:tutorat2022/Providers/user.dart';
+import 'package:tutorat2022/page_404.dart';
+import 'package:tutorat2022/translations/codegen_loader.g.dart';
 
 import 'FireBase/firebase_options.dart';
 import 'Views/AdminDashBoard/Pages/StudentPage/students_page.dart';
@@ -15,6 +18,9 @@ import 'Views/TutoréUI/tutorer_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize app languages
+  await EasyLocalization.ensureInitialized();
 
   try {
     // Initialize Firebase.
@@ -36,9 +42,18 @@ void main() async {
 
   Provider.debugCheckInvalidValueType = null;
   runApp(
-    MultiProvider(
-      providers: [ChangeNotifierProvider<User>(create: (_) => User())],
-      child: const WebApp(),
+    EasyLocalization(
+      path: 'assets/translations',
+      supportedLocales: const [
+        Locale('en'),
+        Locale('fr'),
+      ],
+      fallbackLocale: const Locale('en'),
+      assetLoader: const CodegenLoader(),
+      child: MultiProvider(
+        providers: [ChangeNotifierProvider<User>(create: (_) => User())],
+        child: const WebApp(),
+      ),
     ),
   );
 }
@@ -51,6 +66,9 @@ class WebApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Tutorat",
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
+      locale: context.locale,
       theme: ThemeData(
         useMaterial3: true,
         //fontFamily: "SF Pro",
@@ -62,6 +80,13 @@ class WebApp extends StatelessWidget {
         "/test": (context) => const StudentsPage(),
       },
       initialRoute: "/",
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) => NotFoundPage(
+            routeName: settings.name ?? "/Unknown",
+          ),
+        );
+      },
     );
   }
 }
