@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_card_mini.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_card.dart';
+import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_carousel.dart';
 
 class ModulesView extends StatelessWidget {
-  const ModulesView({Key? key}) : super(key: key);
+  const ModulesView({Key? key, required this.myModules}) : super(key: key);
+
+  final List<Widget> myModules;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +67,19 @@ class ModulesView extends StatelessWidget {
               ),
             ),
           ],
+        ),
+        ModuleCarousel(myModules: myModules, size: size),
+        Padding(
+          padding: const EdgeInsets.only(left: 30, bottom: 10, top: 10),
+          child: Text(
+            'Suggestions: ',
+            style: TextStyle(
+              fontSize: 20,
+              fontFamily: "SF Pro",
+              fontWeight: FontWeight.w400,
+              color: Colors.grey[400],
+            ),
+          ),
         ),
         Expanded(
           child: MasonryGridView.count(

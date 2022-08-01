@@ -64,7 +64,7 @@ class _LoginPanelState extends State<LoginPanel> {
                     ),
                   if (aspectRatio < 0.6)
                     Lottie.asset(
-                      "assets/online-learning.json",
+                      "assets/animations/online-learning.json",
                       frameRate: FrameRate(60), //ACHRAF added this
                       repeat: true,
                       height: widget.height / 2,

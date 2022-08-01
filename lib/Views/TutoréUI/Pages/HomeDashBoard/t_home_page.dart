@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/HomeDashBoard/widgets/modules_view.dart';
 
+import '../../widgets/Modules/module_card.dart';
+
 class THomePage extends StatefulWidget {
   const THomePage({Key? key}) : super(key: key);
 
@@ -10,6 +12,26 @@ class THomePage extends StatefulWidget {
 }
 
 class _THomePageState extends State<THomePage> {
+  List<Widget> _buildCurrentModules() {
+    List<Widget> modules = [];
+    for (int i = 0; i < 3; i++) {
+      modules.add(Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ModuleCard(
+          availableseats: 2,
+          date: '',
+          description: '',
+          height: 180,
+          onTap: () {},
+          title: '',
+          width: 500,
+          tutor: '',
+        ),
+      ));
+    }
+    return modules;
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -21,9 +43,11 @@ class _THomePageState extends State<THomePage> {
         if (aspectRatio < 0.6) {
           return Row(
             children: [
-              const Expanded(
+              Expanded(
                 flex: 3,
-                child: ModulesView(),
+                child: ModulesView(
+                  myModules: _buildCurrentModules(),
+                ),
               ),
               Expanded(
                 flex: 1,
@@ -72,9 +96,11 @@ class _THomePageState extends State<THomePage> {
             ],
           );
         } else {
-          return const Padding(
-            padding: EdgeInsets.all(30.0),
-            child: ModulesView(),
+          return Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: ModulesView(
+              myModules: _buildCurrentModules(),
+            ),
           );
         }
       },

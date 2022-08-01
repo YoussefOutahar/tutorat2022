@@ -4,6 +4,7 @@ import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/HomeDashBoard/widgets/modules_view.dart';
 import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/ModulePage/widgets/main_modules_view.dart';
 import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_card.dart';
+import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_carousel.dart';
 
 class TModulePage extends StatefulWidget {
   const TModulePage({Key? key}) : super(key: key);
@@ -72,12 +73,9 @@ class _TModulePageState extends State<TModulePage> {
             ),
           ),
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: _buildCurrentModules(),
-          ),
+        ModuleCarousel(
+          size: size,
+          myModules: _buildCurrentModules(),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
