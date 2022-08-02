@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/HomeDashBoard/widgets/modules_view.dart';
 
 import '../../widgets/Modules/module_card.dart';
+import '../../widgets/Modules/module_carousel.dart';
+import '../../widgets/Modules/module_view.dart';
 
 class THomePage extends StatefulWidget {
   const THomePage({Key? key}) : super(key: key);
@@ -34,6 +36,7 @@ class _THomePageState extends State<THomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return LayoutBuilder(
       builder: (context, constraints) {
         bool isPortrait = constraints.maxWidth < constraints.maxHeight;
@@ -45,8 +48,80 @@ class _THomePageState extends State<THomePage> {
             children: [
               Expanded(
                 flex: 3,
-                child: ModulesView(
-                  myModules: _buildCurrentModules(),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20, top: 20),
+                              child: Text(
+                                'Modules: ',
+                                style: TextStyle(
+                                  fontSize: 40,
+                                  fontFamily: "SF Pro",
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 30, bottom: 10, top: 10),
+                              child: Text(
+                                'Mes modules: ',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: "SF Pro",
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.grey[400],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: size.width / 5,
+                            child: SearchBarAnimation(
+                              isSearchBoxOnRightSide: true,
+                              hintText: "Youssef Outahar",
+                              durationInMilliSeconds: 500,
+                              isOriginalAnimation: false,
+                              buttonBorderColour: Colors.black45,
+                              buttonIcon: Icons.search,
+                              onFieldSubmitted: (String value) {
+                                debugPrint('onFieldSubmitted value $value');
+                              },
+                              textEditingController: TextEditingController(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    ModuleCarousel(
+                        myModules: _buildCurrentModules(), size: size),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 30, bottom: 10, top: 10),
+                      child: Text(
+                        'Suggestions: ',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: "SF Pro",
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey[400],
+                        ),
+                      ),
+                    ),
+                    const Expanded(child: MainModuleView())
+                  ],
                 ),
               ),
               Expanded(
@@ -96,11 +171,9 @@ class _THomePageState extends State<THomePage> {
             ],
           );
         } else {
-          return Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: ModulesView(
-              myModules: _buildCurrentModules(),
-            ),
+          return const Padding(
+            padding: EdgeInsets.all(30.0),
+            child: MainModuleView(),
           );
         }
       },

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/HomeDashBoard/widgets/modules_view.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/ModulePage/widgets/main_modules_view.dart';
 import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_card.dart';
 import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_carousel.dart';
+
+import '../../widgets/Modules/module_view.dart';
+import 'widgets/category_selection_ship.dart';
 
 class TModulePage extends StatefulWidget {
   const TModulePage({Key? key}) : super(key: key);
@@ -34,27 +34,6 @@ class _TModulePageState extends State<TModulePage> {
     return modules;
   }
 
-  Widget _buildSelectionTab(String title) {
-    bool isHovered = false;
-    return MouseRegion(
-      onEnter: ((event) {
-        setState(() {
-          isHovered = true;
-        });
-      }),
-      onExit: ((event) {
-        setState(() {
-          isHovered = false;
-        });
-      }),
-      child: GestureDetector(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text("$title >"),
-      )),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -81,8 +60,8 @@ class _TModulePageState extends State<TModulePage> {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              _buildSelectionTab("Current"),
-              _buildSelectionTab("Suggested"),
+              const CategorySelectionShip(title: "Tout"),
+              const CategorySelectionShip(title: "Suggestion"),
               const Spacer(),
               SizedBox(
                 width: size.width / 5,

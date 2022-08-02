@@ -36,12 +36,16 @@ class _ModuleCarouselState extends State<ModuleCarousel> {
       height: widget.size.height * 0.3,
       child: Row(children: [
         IconButton(
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
             onPressed: () {
               _pageController.previousPage(
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeIn);
             },
-            icon: const Icon(Icons.arrow_left)),
+            icon: const Icon(Icons.keyboard_arrow_left_rounded)),
         Expanded(
           child: Column(
             children: [
@@ -59,17 +63,24 @@ class _ModuleCarouselState extends State<ModuleCarousel> {
               DotsIndicator(
                 dotsCount: widget.myModules.length,
                 position: double.parse(_currentPage.toString()),
+                decorator: const DotsDecorator(
+                  activeColor: Colors.blue,
+                ),
               ),
             ],
           ),
         ),
         IconButton(
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
             onPressed: () {
               _pageController.nextPage(
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeIn);
             },
-            icon: const Icon(Icons.arrow_right))
+            icon: const Icon(Icons.keyboard_arrow_right_rounded))
       ]),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../../../widgets/Modules/module_card_mini.dart';
+import 'module_card_mini.dart';
 
 class MainModuleView extends StatefulWidget {
   const MainModuleView({Key? key}) : super(key: key);

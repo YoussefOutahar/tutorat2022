@@ -73,16 +73,16 @@ class _TabTileState extends State<TabTile> with TickerProviderStateMixin {
                     borderRadius: const BorderRadius.horizontal(
                         right: Radius.circular(4)),
                     color: widget.isSelected
-                        ? const Color(0xFF7D8000)
-                        : (_hovering ? const Color(0xFF7D8000) : Colors.black),
+                        ? Colors.blue
+                        : (_hovering ? Colors.blue : Colors.black),
                   ),
                 ),
                 const SizedBox(width: 15),
                 Icon(
                   widget.icon,
                   color: widget.isSelected
-                      ? const Color(0xFF7D8000)
-                      : (_hovering ? const Color(0xFF7D8000) : Colors.black),
+                      ? Colors.blue
+                      : (_hovering ? Colors.blue : Colors.black),
                   size: 20,
                 ),
               ],
