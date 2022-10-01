@@ -10,11 +10,11 @@ import 'package:tutorat2022/Providers/user.dart';
 import 'package:tutorat2022/page_404.dart';
 import 'package:tutorat2022/translations/codegen_loader.g.dart';
 
+import 'Apps/Admin/Pages/StudentPage/students_page.dart';
+import 'Apps/Admin/admin_screen.dart';
+import 'Auth/auth_check.dart';
 import 'FireBase/firebase_options.dart';
-import 'Views/AdminDashBoard/Pages/StudentPage/students_page.dart';
-import 'Views/AdminDashBoard/admin_screen.dart';
-import 'Views/Authentification/authenticate_page.dart';
-import 'Views/TutoréUI/tutorer_screen.dart';
+import 'Widgets/TutoréUI/tutorer_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,6 +58,8 @@ void main() async {
   );
 }
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class WebApp extends StatelessWidget {
   const WebApp({Key? key}) : super(key: key);
 
@@ -74,7 +76,8 @@ class WebApp extends StatelessWidget {
         //fontFamily: "SF Pro",
       ),
       routes: {
-        "/": (context) => const AuthenticatePage(),
+        '/': (BuildContext context) => const AuthCheck(),
+        //"/": (context) => const AuthenticatePage(),
         "/Tutorat": (context) => const TutoratPage(),
         "/Admin": (context) => const AdminPage(),
         "/test": (context) => const StudentsPage(),

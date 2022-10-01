@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:tutorat2022/Views/AdaptiveSidePanel/adapive_side_panel.dart';
-import 'package:tutorat2022/Views/AdminDashBoard/Pages/home_page.dart';
+import 'package:tutorat2022/Widgets/AdaptiveSidePanel/adapive_side_panel.dart';
 
 import 'Pages/StudentPage/students_page.dart';
+import 'Pages/home_page.dart';
 
 class AdminPage extends StatefulWidget {
   const AdminPage({Key? key}) : super(key: key);

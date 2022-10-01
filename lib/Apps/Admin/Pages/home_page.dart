@@ -16,7 +16,6 @@ class _AdminHomePageState extends State<AdminHomePage> {
       builder: (context, constraints) {
         bool isPortrait =
             MediaQuery.of(context).orientation == Orientation.portrait;
-        double aspectRatio = MediaQuery.of(context).size.aspectRatio;
         if (isPortrait) {
           return SizedBox(
             height: double.infinity,
@@ -86,7 +85,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
                     ),
                   ),
                 ),
-                Flexible(
+                const Flexible(
                     flex: 3,
                     child: Card(
                       color: Colors.red,

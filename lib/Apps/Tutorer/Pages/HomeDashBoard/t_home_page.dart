@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-import '../../widgets/Modules/module_card.dart';
-import '../../widgets/Modules/module_carousel.dart';
-import '../../widgets/Modules/module_view.dart';
+import '../../../../Widgets/Modules/module_card.dart';
+import '../../../../Widgets/Modules/module_carousel.dart';
+import '../../../../Widgets/Modules/module_view.dart';
 
 class THomePage extends StatefulWidget {
   const THomePage({Key? key}) : super(key: key);
@@ -144,7 +144,7 @@ class _THomePageState extends State<THomePage> {
                           surfaceTintColor: Colors.grey,
                           elevation: 5,
                           child: ListView(
-                            children: [
+                            children: const [
                               ListTile(
                                 title: Text("Module 1"),
                                 subtitle: Text("Module 1"),

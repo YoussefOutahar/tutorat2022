@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/t_history_page.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/Pages/ModulePage/t_module_page.dart';
-
-import '../AdaptiveSidePanel/adapive_side_panel.dart';
+import 'package:tutorat2022/Widgets/AdaptiveSidePanel/adapive_side_panel.dart';
+import 'package:tutorat2022/Widgets/Tutor%C3%A9UI/Pages/ModulePage/t_module_page.dart';
 import 'Pages/t_calendar_page.dart';
 import 'Pages/HomeDashBoard/t_home_page.dart';
+import 'Pages/t_history_page.dart';
 
 class TutoratPage extends StatefulWidget {
   const TutoratPage({Key? key}) : super(key: key);
@@ -22,8 +21,6 @@ class _TutoratPageState extends State<TutoratPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
     return AdaptiveSidePanel(
       tabData: tabData,
       tabs: [

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
@@ -25,9 +24,6 @@ class _StudentsPageState extends State<StudentsPage> {
     Size? size = MediaQuery.of(context).size;
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isPortrait =
-            MediaQuery.of(context).orientation == Orientation.portrait;
-        double aspectRatio = MediaQuery.of(context).size.aspectRatio;
         return SizedBox(
           width: double.infinity,
           height: double.infinity,
@@ -57,32 +53,32 @@ class _StudentsPageState extends State<StudentsPage> {
                     GridColumn(
                         columnName: 'id',
                         label: Container(
-                            padding: EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.all(16.0),
                             alignment: Alignment.center,
-                            child: Text(
+                            child: const Text(
                               'ID',
                             ))),
                     GridColumn(
                         columnName: 'name',
                         label: Container(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             alignment: Alignment.center,
-                            child: Text('Name'))),
+                            child: const Text('Name'))),
                     GridColumn(
                         columnName: 'designation',
                         label: Container(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             alignment: Alignment.center,
-                            child: Text(
+                            child: const Text(
                               'Designation',
                               overflow: TextOverflow.ellipsis,
                             ))),
                     GridColumn(
                         columnName: 'salary',
                         label: Container(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             alignment: Alignment.center,
-                            child: Text('Salary'))),
+                            child: const Text('Salary'))),
                   ],
                 ),
               ),

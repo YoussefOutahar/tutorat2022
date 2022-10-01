@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorat2022/main.dart';
 
 import 'tab_tile.dart';
 
@@ -72,7 +74,20 @@ class _WebSidePanelState extends State<WebSidePanel> {
               ),
               const Spacer(),
               IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.logout)),
+              IconButton(
+                  onPressed: () async {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) =>
+                          const Center(child: CircularProgressIndicator()),
+                    );
+                    FirebaseAuth.instance.signOut();
+                    Navigator.of(context).pop();
+                    navigatorKey.currentState!
+                        .popUntil((route) => route.isFirst);
+                  },
+                  icon: const Icon(Icons.logout)),
             ],
           ),
         ),

@@ -1,8 +1,7 @@
 import 'package:cuberto_bottom_bar/cuberto_bottom_bar.dart';
 import 'package:flutter/material.dart';
-
-import 'Widgets/side_panel_phone.dart';
-import 'Widgets/side_panel_web.dart';
+import 'package:tutorat2022/Widgets/AdaptiveSidePanel/side_panel_phone.dart';
+import 'package:tutorat2022/Widgets/AdaptiveSidePanel/side_panel_web.dart';
 
 class AdaptiveSidePanel extends StatefulWidget {
   const AdaptiveSidePanel({Key? key, required this.tabs, required this.tabData})

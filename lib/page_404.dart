@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class NotFoundPage extends StatelessWidget {
-  const NotFoundPage({Key? key, required this.routeName}) : super(key: key);
+  const NotFoundPage({Key? key, this.routeName}) : super(key: key);
 
-  final String routeName;
+  final String? routeName;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,6 @@ class NotFoundPage extends StatelessWidget {
               repeat: true,
               frameRate: FrameRate(60),
             ),
-            Text('${routeName.substring(1)} page not Found')
           ],
         ),
       ),

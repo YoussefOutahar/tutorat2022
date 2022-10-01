@@ -16,7 +16,6 @@ class _MainPageState extends State<AuthenticatePage> {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
-          bool isPortrait = constraints.maxWidth < constraints.maxHeight;
           return Stack(
             children: [
               Stack(

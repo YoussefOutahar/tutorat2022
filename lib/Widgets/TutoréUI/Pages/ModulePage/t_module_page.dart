@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_card.dart';
-import 'package:tutorat2022/Views/Tutor%C3%A9UI/widgets/Modules/module_carousel.dart';
-
-import '../../widgets/Modules/module_view.dart';
-import 'widgets/category_selection_ship.dart';
+import 'package:tutorat2022/Apps/Tutorer/Pages/ModulePage/widgets/category_selection_ship.dart';
+import 'package:tutorat2022/Widgets/Modules/module_card.dart';
+import 'package:tutorat2022/Widgets/Modules/module_carousel.dart';
+import 'package:tutorat2022/Widgets/Modules/module_view.dart';
 
 class TModulePage extends StatefulWidget {
   const TModulePage({Key? key}) : super(key: key);

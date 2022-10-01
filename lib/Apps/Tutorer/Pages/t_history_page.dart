@@ -65,8 +65,8 @@ class _HistoryEventState extends State<HistoryEvent> {
                 child: Column(
                   children: [
                     Row(
-                      children: [
-                        const Spacer(),
+                      children: const [
+                        Spacer(),
                         Icon(
                           Iconsax.arrow_2,
                           color: Colors.grey,
@@ -74,27 +74,25 @@ class _HistoryEventState extends State<HistoryEvent> {
                       ],
                     ),
                     if (isExpanded)
-                      Container(
-                        child: Column(
-                          children: [
-                            const SizedBox(height: 10),
-                            Text(
-                              widget.title,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                      Column(
+                        children: [
+                          const SizedBox(height: 10),
+                          Text(
+                            widget.title,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                             ),
-                            const SizedBox(height: 10),
-                            Text(
-                              widget.date,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            widget.date,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                   ],
                 )),
